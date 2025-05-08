@@ -1,0 +1,122 @@
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --accent: #0077cc;
+    --card-bg: #ffffff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+header, section, footer {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+    color: var(--accent);
+}
+
+/* Dark mode override */
+body.dark {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --accent: #90caf9;
+    --card-bg: #1e1e1e;
+}
+
+/* Sticky header */
+header.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Theme toggle */
+#themeToggle {
+    padding: 8px 16px;
+    border: 1px solid var(--text-color);
+    background: none;
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Scroll animations */
+.animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Switch wrapper */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    margin-right: 10px;
+}
+
+/* Hide default checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider base */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+/* Slider knob */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* When checked */
+.switch input:checked + .slider {
+    background-color: #0077cc;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(22px);
+}
